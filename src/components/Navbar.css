@@ -1,0 +1,155 @@
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+    z-index: 10;
+    font-size: 1.82rem;
+}
+
+.nav__list {
+    display: flex;
+    gap: 1rem;
+    border-radius: 15px;
+    padding: 1rem 2rem;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 20px;
+}
+
+.toggle {
+    position: relative;
+    top: 6px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.hamburger {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    display: block;
+    width: 26.5px;
+    height: 2px;
+    background-color: rgba(255, 228, 196, 0.93);
+    margin-block: 8px;
+    border-radius: 1px;
+    transition: 0.5s ease-in-out;
+}
+
+.hamburger.toggled .line:nth-child(1) {
+    transform: translateY(10px) rotate(47deg);
+    height: 3px;
+}
+
+.hamburger.toggled .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggled .line:nth-child(3) {
+    transform: translateY(-11px) rotate(-47deg);
+    height: 3px;
+}
+
+.menu {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: -100%;
+
+    height: 100vh;
+    width: 100%;
+
+    transition: 1s;
+}
+
+.active {
+    z-index: 5;
+    left: 0%;
+    background: rgba(0, 0, 0, 0.97);
+}
+
+.menu__link {
+    font-size: 1.8rem;
+    padding: 1.8rem;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.menu__link a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    gap: 1.1rem;
+    padding: 2px;
+
+    transition: 0.3s ease-in-out;
+}
+
+.menu__link a:hover {
+    color: rgb(177, 43, 214);
+}
+
+.menu__link a::after {
+    content: '';
+    position: absolute;
+    display: flex;
+    bottom: -35%;
+    border-radius: 75%;
+    background: white;
+    width: 0;
+    height: 2px;
+    transition: 0.35s ease;
+}
+
+.menu__link a:hover::after {
+    background: rgb(177, 43, 214);
+    width: calc(100% + 0.5rem);
+}
+
+.watermark {
+    position: absolute;
+    right: 4%;
+    bottom: 4%;
+}
+
+.watermark h1 {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 926px) {
+    .menu__link {
+        font-size: 1.44rem;
+    }
+
+    .brand {
+        font-size: 1.64rem;
+    }
+}
